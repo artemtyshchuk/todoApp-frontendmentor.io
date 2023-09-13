@@ -1,0 +1,109 @@
+:global {
+  body[data-theme="light"] {
+    --todoList-bg: var(--white);
+    --todoList-color: var(--darkTheme-veryDarkGrayishBlue);
+    --todoList-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
+    --shadowForElem: var(--shadow);
+  }
+
+  body[data-theme="dark"] {
+    --todoList-bg: #25273d;
+    --todoList-color: var(--white);
+    --todoList-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
+    --shadowForElem: var(--shadow);
+  }
+}
+
+.todoList {
+  width: 100%;
+  padding: 0;
+}
+
+.todoWrapper {
+  margin-top: 25px;
+  position: relative;
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  padding: 10px 10px 10px 16px;
+  background-color: var(--todoList-bg, white);
+  display: grid;
+  grid-template-columns: 25px auto 55px;
+  column-gap: 24px;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: var(--shadowForElem);
+
+  font-family: Josefin Sans, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.25px;
+  color: var(--todoList-color);
+  cursor: pointer;
+  background-color: var(--todoList-bg);
+}
+
+.textField {
+  padding: 0 24px;
+  flex-grow: 5;
+  height: 100%;
+  max-width: calc(100% - 100px - 20px);
+  border: none;
+  color: var(--todoList-color);
+  cursor: pointer;
+  background-color: var(--todoList-bg);
+
+  font-family: Josefin Sans, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.25px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.checkboxCustom {
+  justify-self: start;
+}
+
+.todoListButton {
+  position: relative;
+  border: 1px solid #fff;
+  background-color: red;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.todoListButton::before,
+.todoListButton::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+}
+
+.todoListButton::before {
+  width: 2px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.todoListButton::after {
+  width: 15px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+input[type="checkbox"] {
+  display: none;
+}

@@ -1,0 +1,61 @@
+:global {
+  body[data-theme="light"] {
+    --newTodo-bg: var(--white);
+    --newTodo-color: var(--darkTheme-veryDarkGrayishBlue);
+    --newTodo-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
+  }
+
+  body[data-theme="dark"] {
+    --newTodo-bg: #25273d;
+    --newTodo-color: var(--white);
+    --newTodo-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
+  }
+}
+
+.newTodo {
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  padding: 10px 10px 10px 16px;
+  background-color: var(--newTodo-bg, white);
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.textField {
+  padding: 0 24px;
+  flex-grow: 5;
+  height: 100%;
+  max-width: calc(100% - 100px - 20px);
+  border: none;
+  color: var(--newTodo-color);
+  cursor: pointer;
+  background-color: var(--newTodo-bg);
+
+  font-family: Josefin Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.25px;
+
+  &::placeholder {
+    color: var(--newTodo-placeholder-color);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.25px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

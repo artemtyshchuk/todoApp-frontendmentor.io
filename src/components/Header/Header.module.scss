@@ -1,0 +1,16 @@
+.header {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+.title {
+  color: var(--white);
+  font-family: Josefin Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 15px;
+  user-select: none;
+}
