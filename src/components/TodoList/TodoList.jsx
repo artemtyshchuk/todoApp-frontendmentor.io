@@ -5,16 +5,30 @@ import { selectActiveFilter } from "../../store/filters/filters-selectors";
 import styles from "./TodoList.module.scss";
 import { ReactComponent as CircleIcon } from "../../assets/images/circle.svg";
 import { ReactComponent as FilledCircleIcon } from "../../assets/images/circleFilled.svg";
+import { useState } from "react";
 
 export const TodoList = () => {
+  const [iconStates, setIconStates] = useState({});
+
   const dispatch = useDispatch();
   const activeFilter = useSelector(selectActiveFilter);
   const todos = useSelector((state) => selectVisibleTodos(state, activeFilter));
 
+  const toggleIconState = (id) => {
+    setIconStates((prevIconStates) => ({
+      ...prevIconStates,
+      [id]: !prevIconStates[id],
+    }));
+  };
+
   return (
     <ul className={styles.todoList}>
       {todos.map((todo) => (
-        <li key={todo.id} className={styles.todoWrapper}>
+        <li
+          key={todo.id}
+          className={styles.todoWrapper}
+          onClick={() => toggleIconState(todo.id)}
+        >
           <input
             type="checkbox"
             checked={todo.completed}
@@ -22,7 +36,7 @@ export const TodoList = () => {
             onChange={() => dispatch(toggleTodo(todo.id))}
           />
           <span className={styles.checkboxCustom}>
-            <CircleIcon />
+            {iconStates[todo.id] ? <FilledCircleIcon /> : <CircleIcon />}
           </span>
           {todo.title}
           <button

@@ -45,30 +45,8 @@
   background-color: var(--todoList-bg);
 }
 
-.textField {
-  padding: 0 24px;
-  flex-grow: 5;
-  height: 100%;
-  max-width: calc(100% - 100px - 20px);
-  border: none;
-  color: var(--todoList-color);
-  cursor: pointer;
-  background-color: var(--todoList-bg);
-
-  font-family: Josefin Sans, serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.25px;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.checkboxCustom {
-  justify-self: start;
+input[type="checkbox"] {
+  display: none;
 }
 
 .todoListButton {
@@ -102,8 +80,4 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-}
-
-input[type="checkbox"] {
-  display: none;
 }
