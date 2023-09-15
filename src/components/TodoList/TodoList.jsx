@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTodo, removeTodo } from "../../store/todos/todos-actions";
 import { selectVisibleTodos } from "../../store/todos/todos-selectors";
@@ -5,7 +6,6 @@ import { selectActiveFilter } from "../../store/filters/filters-selectors";
 import styles from "./TodoList.module.scss";
 import { ReactComponent as CircleIcon } from "../../assets/images/circle.svg";
 import { ReactComponent as FilledCircleIcon } from "../../assets/images/circleFilled.svg";
-import { useState } from "react";
 
 export const TodoList = () => {
   const [iconStates, setIconStates] = useState({});
@@ -26,15 +26,14 @@ export const TodoList = () => {
       {todos.map((todo) => (
         <li
           key={todo.id}
-          className={styles.todoWrapper}
-          onClick={() => toggleIconState(todo.id)}
+          className={
+            iconStates[todo.id] ? styles.todoWrapperFilled : styles.todoWrapper
+          }
+          onClick={() => {
+            toggleIconState(todo.id);
+            dispatch(toggleTodo(todo.id));
+          }}
         >
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            className={styles.textField}
-            onChange={() => dispatch(toggleTodo(todo.id))}
-          />
           <span className={styles.checkboxCustom}>
             {iconStates[todo.id] ? <FilledCircleIcon /> : <CircleIcon />}
           </span>

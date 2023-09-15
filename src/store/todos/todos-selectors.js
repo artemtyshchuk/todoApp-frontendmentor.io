@@ -1,5 +1,7 @@
 export const selectAllTodos = (state) => state.todos;
 
+export const selectTodoCount = (state) => selectAllTodos(state).length;
+
 export const selectActiveTodos = (state) =>
   state.todos.filter((todo) => todo.completed === false);
 

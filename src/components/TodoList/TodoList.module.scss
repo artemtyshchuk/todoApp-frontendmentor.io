@@ -2,15 +2,15 @@
   body[data-theme="light"] {
     --todoList-bg: var(--white);
     --todoList-color: var(--darkTheme-veryDarkGrayishBlue);
-    --todoList-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
     --shadowForElem: var(--shadow);
+    --todoList-filledText: #d1d2da;
   }
 
   body[data-theme="dark"] {
     --todoList-bg: #25273d;
     --todoList-color: var(--white);
-    --todoList-placeholder-color: var(--lightTheme-veryDarkGrayishBlue);
     --shadowForElem: var(--shadow);
+    --todoList-filledText: #4d5067;
   }
 }
 
@@ -20,7 +20,7 @@
 }
 
 .todoWrapper {
-  margin-top: 25px;
+  margin-top: 15px;
   position: relative;
   width: 100%;
   height: 64px;
@@ -45,14 +45,46 @@
   background-color: var(--todoList-bg);
 }
 
+.todoWrapperFilled {
+  margin-top: 15px;
+  position: relative;
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  padding: 10px 10px 10px 16px;
+  background-color: var(--todoList-bg, white);
+  display: grid;
+  grid-template-columns: 25px auto 55px;
+  column-gap: 24px;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: var(--shadowForElem);
+
+  font-family: Josefin Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.25px;
+  text-decoration-line: line-through;
+  color: var(--todoList-filledText);
+
+  cursor: pointer;
+  background-color: var(--todoList-bg);
+}
+
 input[type="checkbox"] {
-  display: none;
+  position: absolute;
+  left: 18px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
 }
 
 .todoListButton {
   position: relative;
-  border: 1px solid #fff;
-  background-color: red;
+  border: 1px solid var(--todoList-bg, white);
+  background-color: var(--todoList-bg, white);
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -63,7 +95,7 @@ input[type="checkbox"] {
 .todoListButton::after {
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: var(--todoList-color);
 }
 
 .todoListButton::before {

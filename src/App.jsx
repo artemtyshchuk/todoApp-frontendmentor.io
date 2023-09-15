@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <NewTodo />
       <TodoList />
-      {/* <Filters /> */}
+      <Filters />
     </Container>
   );
 }

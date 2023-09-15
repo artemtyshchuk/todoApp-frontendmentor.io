@@ -1,1 +1,62 @@
-.filters {}
+:global {
+  body[data-theme="light"] {
+    --todoList-bg: var(--white);
+    --shadowForElem: var(--shadow);
+
+    --filters-itemsLeft: var(--lightTheme-itemsLEft);
+    --filters-hoverColor: var(--lightTheme-filterHover);
+  }
+
+  body[data-theme="dark"] {
+    --todoList-bg: #25273d;
+    --shadowForElem: var(--shadow);
+
+    --filters-itemsLeft: var(--darkTheme-itemsLEft);
+    --filters-hoverColor: var(--darkTheme-filterHover);
+  }
+}
+
+.filters {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  padding: 10px 10px 10px 16px;
+  background-color: var(--todoList-bg);
+  display: grid;
+  grid-template-columns: 110px auto auto;
+  column-gap: 24px;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: var(--shadowForElem);
+}
+
+.itemsLeft {
+  color: var(--filters-itemsLeft);
+  font-family: Josefin Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.194px;
+}
+
+.mainButtons {
+  justify-self: center;
+}
+
+.filterButton {
+  margin-left: 10px;
+  position: relative;
+  border: none;
+  color: var(--filters-itemsLeft);
+  background-color: var(--todoList-bg);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--filters-hoverColor);
+  }
+}
