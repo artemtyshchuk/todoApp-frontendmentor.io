@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectActiveFilter } from "../../store/filters/filters-selectors";
-import { selectTodoCount } from "../../store/todos/todos-selectors";
-import { setFilter } from "../../store/filters/filters-actions";
+import { setFilter } from "../../features/filters/filters-slice";
+import { clearCompleted } from "../../features/todos/todos-slice";
+
 import styles from "./Filters.module.scss";
-import { clearCompleted } from "../../store/todos/todos-actions";
 
 export const Filters = () => {
   const dispatch = useDispatch();
-  const activeFilter = useSelector(selectActiveFilter);
+  const activeFilter = useSelector((state) => state.filter);
 
-  const todoCount = useSelector(selectTodoCount);
+  const todoCount = useSelector((state) => state.todos.length);
 
   return (
     <div className={styles.filters}>

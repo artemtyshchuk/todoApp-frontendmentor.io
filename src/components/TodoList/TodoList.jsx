@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTodo, removeTodo } from "../../store/todos/todos-actions";
-import { selectVisibleTodos } from "../../store/todos/todos-selectors";
-import { selectActiveFilter } from "../../store/filters/filters-selectors";
+import {
+  toggleTodo,
+  removeTodo,
+  selectVisibleTodos,
+} from "../../features/todos/todos-slice";
+
 import styles from "./TodoList.module.scss";
 import { ReactComponent as CircleIcon } from "../../assets/images/circle.svg";
 import { ReactComponent as FilledCircleIcon } from "../../assets/images/circleFilled.svg";
@@ -11,7 +14,7 @@ export const TodoList = () => {
   const [iconStates, setIconStates] = useState({});
 
   const dispatch = useDispatch();
-  const activeFilter = useSelector(selectActiveFilter);
+  const activeFilter = useSelector((state) => state.filter);
   const todos = useSelector((state) => selectVisibleTodos(state, activeFilter));
 
   const toggleIconState = (id) => {

@@ -1,7 +1,7 @@
 import styles from "./NewTodo.module.scss";
 import { ReactComponent as CircleIcon } from "../../assets/images/circle.svg";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../store/todos/todos-actions";
+import { addTodo } from "../../features/todos/todos-slice";
 
 export const NewTodo = () => {
   const dispatch = useDispatch();
