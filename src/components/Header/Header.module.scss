@@ -1,3 +1,13 @@
+:global {
+  body[data-theme="light"] {
+    --header-logo: black;
+  }
+
+  body[data-theme="dark"] {
+    --header-logo: white;
+  }
+}
+
 .header {
   margin-top: 70px;
   display: grid;
@@ -5,7 +15,7 @@
   justify-content: space-between;
 }
 .title {
-  color: var(--white);
+  color: var(--header-logo);
   font-family: Josefin Sans;
   font-size: 40px;
   font-style: normal;
